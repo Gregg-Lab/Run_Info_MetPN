@@ -1,0 +1,12 @@
+##combined_mompup Batch AMOVA and LEFse
+##P11 Mom Microbiome Met PN AMOVA and LEFse
+# 07/10/2019 by Zach Carlson
+
+get.groups(shared=combined_mompup.final.0.03.pick.shared, groups=25M11-26M11-27M11-28M11-29M11-30M11-31M11-32M11-70M11-72M11-73M11-74M11-75M11) #this makes a shared file with just the samples listed, in this case the LD samples that sequenced ok
+system(mv combined_mompup.final.0.03.pick.0.03.pick.shared combined_mompup.final.p11.shared) #renames the file so it makes sense and you don’t overwrite the files for your different subsets
+dist.shared(shared=combined_mompup.final.p11.shared, calc=thetayc)
+pcoa(phylip=combined_mompup.final.p11.thetayc.0.03.lt.dist)
+corr.axes(shared=combined_mompup.final.p11.shared, axes=combined_mompup.final.p11.thetayc.0.03.lt.pcoa.axes, numaxes=2)
+amova(phylip=combined_mompup.final.p11.thetayc.0.03.lt.dist, design=combined_mom_P11.design.txt)
+lefse(shared=combined_mompup.final.p11.shared, design=combined_mom_P11.design.txt) #note, this is a 2 way comparison
+

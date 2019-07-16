@@ -1,0 +1,12 @@
+##combined_mompup Pup P19 Batch AMOVA and LEFse
+##P19 AMOVA and LEFse
+# 07/10/2019 by Zach Carlson
+
+get.groups(shared=combined_mompup.final.0.03.pick.shared, groups=251b19-252b19-253b19-254b19-2810b19-282b19-283b19-288b19-303b19-304b19-307b19-311b19-313b19-314b19-317b19-732b19-733b19-737b19-752b19-757b19-759b19) #this makes a shared file with just the samples listed, in this case the LD samples that sequenced ok
+system(mv combined_mompup.final.0.03.pick.0.03.pick.shared combined_mompup.final.p19.shared) #renames the file so it makes sense and you don’t overwrite the files for your different subsets
+dist.shared(shared=combined_mompup.final.p19.shared, calc=thetayc)
+pcoa(phylip=combined_mompup.final.p19.thetayc.0.03.lt.dist)
+corr.axes(shared=combined_mompup.final.p19.shared, axes=combined_mompup.final.p19.thetayc.0.03.lt.pcoa.axes, numaxes=2)
+amova(phylip=combined_mompup.final.p19.thetayc.0.03.lt.dist, design=combined_P19.design.txt)
+lefse(shared=combined_mompup.final.p19.shared, design=combined_P19.design.txt) #note, this is a 2 way comparison
+

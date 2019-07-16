@@ -1,0 +1,8 @@
+##combined_mompup get.oturep()
+##Mom and Pup Microbiome Met PN get.oturep()
+# 07/10/2019 by Zach Carlson
+
+get.oturep(column=combined_mompup.trim.contigs.good.unique.good.filter.unique.precluster.pick.pick.dist, count=combined_mompup.final.count_table, fasta=combined_mompup.final.fasta, list=combined_mompup.final.list)
+
+
+
